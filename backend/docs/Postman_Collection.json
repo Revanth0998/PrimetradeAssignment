@@ -1,0 +1,46 @@
+{
+  "info": {
+    "name": "Primetrade API",
+    "_postman_id": "abcd-1234-efgh-5678",
+    "description": "Postman collection for Primetrade Backend APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type","value":"application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"testuser\",\"name\":\"Test User\",\"password\":\"pass1234\",\"gender\":\"male\",\"location\":\"NY\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["register"]
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type","value":"application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"testuser\",\"password\":\"pass1234\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["login"]
+        }
+      }
+    }
+  ]
+}
