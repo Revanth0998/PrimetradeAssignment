@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# Primetrade Frontend-Backend Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a scalable web application featuring authentication and dashboard functionality. It is built using:
 
-In the project directory, you can run:
+- Frontend: React.js
+- Backend: Node.js + Express.js
+- Database: SQLite
+- Authentication: JWT (JSON Web Tokens) with bcrypt
 
-### `npm start`
+Main features include:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- User Signup and Login with secure JWT authentication
+- Protected routes for Dashboard and Profile pages
+- CRUD operations for user tasks, including search and filtering
+- Profile viewing and updating capability
+- Responsive UI styled using Bootstrap for cross-device usability
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+- `src/controllers/` - Business logic for users and tasks
+- `src/models/` - Database schemas for users and tasks
+- `src/routes/` - Express route handlers for authentication and tasks
+- `src/middleware/` - Authentication middleware using JWT
+- `config/` - Database config and environment variable setup
+- `database/` - SQLite file storage
+- `utils/` - Helper functions for token management and error handling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `src/components/` - Reusable UI components (e.g., Header, ProtectedRoute)
+- `src/pages/` - Individual page components (LoginPage, SignupPage, Dashboard, Profile)
+- `src/services/` - API service calls to backend
+- `App.js` - Root app with React Router setup
+- `index.js` - App entry point wrapping with Router and styles
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the backend folder:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+2. Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Create a `.env` file with:
 
-### Analyzing the Bundle Size
+JWTSECRET=your-secret-key
+PORT=5000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Start the backend server:
 
-### Advanced Configuration
+npm run dev
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The backend runs at `http://localhost:5000`
 
-### `npm run build` fails to minify
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Navigate to the frontend folder:
+
+cd frontend
+
+
+
+2. Install dependencies:
+
+npm install
+
+
+
+3. Start the React development server:
+
+npm start
+
+
+
+The frontend runs at `http://localhost:3000`
+
+---
+
+## Usage
+
+- Use `/signup` route to register a new user.
+- Use `/login` to authenticate via JWT.
+- Dashboard (`/dashboard`) is a protected route showing tasks and search/filter.
+- Profile (`/profile`) allows user info update.
+- Navigate via the header bar and logout to clear session.
+
+---
+
+## API Documentation
+
+- `POST /auth/register` - Register user
+- `POST /auth/login` - Login with JWT response
+- `GET /auth/profile` - Get user profile (auth required)
+- `PUT /auth/profile` - Update profile (auth required)
+- CRUD routes for tasks under `/tasks` (all JWT protected)
+
+---
+
+## Security
+
+- Passwords hashed securely with bcrypt
+- JWT tokens used for stateless authentication
+- Frontend protects routes by verifying login status
+- Backend verifies JWT on API calls
+- Inputs validated and sanitized to avoid injection risks
+
+---
+
+## Contact and Support
+
+- Developer: **Katta Revanth**
+- Email: [kattarevanth9@gmail.com](mailto:kattarevanth9@gmail.com)
+
+---
+
+This README provides essential info for setup, usage, and contribution to the project.
